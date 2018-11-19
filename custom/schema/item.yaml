@@ -1,0 +1,12 @@
+data:
+  title:
+    type: text
+    label: Title
+    
+  blurb:
+    type: text
+    label: Blurb
+    
+  blurb2:
+    type: text
+    label: Blurb
