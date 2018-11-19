@@ -13,7 +13,7 @@
       $match = false;
       foreach($path as $folder){
         $match = false;
-        foreach(scandir(ROOT . 'content/' . $rebuilt) as $dir){
+        foreach(scandir(ROOT . '/content/' . $rebuilt) as $dir){
           if(preg_match('/^[0-9-]*' . $folder . '$/', $dir)){
             $rebuilt .= $dir . '/';
             $match = true;
@@ -56,7 +56,7 @@
         
         if($resolved === false) return array('err' => 'path ' . $path . ' doesn\'t exist');
 
-        if(!file_exists(ROOT . 'content/' . $resolved)) return array('err' => 'no dir');                                          // Error no dir exists
+        if(!file_exists(ROOT . '/content/' . $resolved)) return array('err' => 'no dir');                                          // Error no dir exists
         $pageName = end($breadcrumbs);
         
         $this->path['val'] = $path;
@@ -67,7 +67,7 @@
             $path = '';
         }
         
-        $files = scandir(ROOT . 'content/' . $resolved);
+        $files = scandir(ROOT . '/content/' . $resolved);
         foreach($files as $file){
             if(preg_match('/^[a-z0-9]*.yaml$/', $file)){
                 $template = $file;
@@ -77,7 +77,7 @@
         
         if(!isset($template)) return array('err' =>'no template');                             // No template
         $this->template['val'] = strrtrim( $template, '.yaml');
-        $content = file_get_contents(ROOT .'content/' . $resolved . '/' . $template);
+        $content = file_get_contents(ROOT .'/content/' . $resolved . '/' . $template);
         $content = strpos($content, ':') ? yaml_parse($content) : false;
         if(!$content) return array('err' => 'no content');                         // Error no page contents
 
@@ -122,7 +122,7 @@
           $items = array();
           if(!$layer) $items[] = new Page('home');
           if($layer) $layer = trim($layer, '/') . '/';
-          foreach(scandir(ROOT . 'content/' . $layer) as $item){
+          foreach(scandir(ROOT . '/content/' . $layer) as $item){
             if(($item !== ('.' | '..')) && validSlug($item)) $items[] = new Page($layer . $item);
           };
 
@@ -232,7 +232,7 @@
       }
     
       function url(){
-        return SITE_URL . 'content/' . $this->parent['val'] . '/' . $this->filename['val'];
+        return SITE_URL . '/content/' . $this->parent['val'] . '/' . $this->filename['val'];
       }
   }
 
@@ -244,7 +244,7 @@
     }
       
     function init($parent) {
-      $files = scandir(ROOT . 'content/' . $parent);
+      $files = scandir(ROOT . '/content/' . $parent);
       foreach($files as $file){
         if(preg_match('/^[a-z0-9_]*.jpg$/', $file)){
             $this->files[] = new File($parent . '/' . $file);
