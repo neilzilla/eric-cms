@@ -1,0 +1,17 @@
+data:
+  
+  title:
+    type: text
+    label: Section Title
+  
+  subtitle:
+    type: text
+    label: Sub Title
+  
+  image:
+    type: text
+    label: Image
+    
+  colour:
+    type: text
+    label: Colour

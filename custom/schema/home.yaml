@@ -1,29 +1,4 @@
 data:
-  
-  ragotitle:
+  title:
     type: text
-    label: Rago Title
-  
-  abtitle:
-    type: text
-    label: AB Title
-  
-  ragoemail:
-    type: text
-    label: Rago Email
-    
-  abemail:
-    type: text
-    label: AB Email
-  
-  desc:
-    type: textarea
-    label: Description
-    
-  abcontact:
-    type: textarea
-    label: Contact Info
-  
-  ragocontact:
-    type: textarea
-    label: Contact Info
+    label: title

@@ -120,7 +120,6 @@
       function initLayer($layer=false){
           $layer = resolve_path($layer);
           $items = array();
-          if(!$layer) $items[] = new Page('home');
           if($layer) $layer = trim($layer, '/') . '/';
           foreach(scandir(ROOT . '/content/' . $layer) as $item){
             if(($item !== ('.' | '..')) && validSlug($item)) $items[] = new Page($layer . $item);
