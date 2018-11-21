@@ -15,3 +15,27 @@ data:
   colour:
     type: text
     label: Colour
+    
+  icon:
+    type: text
+    label: icon
+    
+  contentTitle:
+    type: text
+    label: Content Title
+
+  hiFiText:
+    type: text
+    label: Hi-Fi Text
+    
+  loFiText:
+    type: text
+    label: Lo-Fi Text
+  
+  hiFiImage:
+    type: text
+    label: Hi-Fi Image
+    
+  loFiImage:
+    type: text
+    label: Lo-Fi Image

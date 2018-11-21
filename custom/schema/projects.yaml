@@ -15,3 +15,7 @@ data:
   colour:
     type: text
     label: Colour
+
+  icon:
+    type: text
+    label: icon

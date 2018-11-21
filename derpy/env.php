@@ -8,7 +8,7 @@
     require_once(ROOT. '/derpy/functions.php');
     require_once(ROOT . '/derpy/lib/manifest.php');
 
-    if(!validSlug($path)) go('home');
+    if(!validSlug($path)) go('');
 
     $derpy = new derpy();
     

@@ -27,6 +27,7 @@
 
     class Page {
       
+      var $slug = array('type' => 'text', 'val' => '');
       var $path = array('type' => 'text', 'val' => '');
       var $resolved = array('type' => 'text', 'val' => '');
       var $template = array('type' => 'text', 'val' => '');
@@ -49,8 +50,9 @@
         $breadcrumbs = explode('?', $path);
         $path = trim($breadcrumbs[0], '/');
         $breadcrumbs = explode('/', $path);
-        if($path == 'home') $path = '';
-
+        $slug = explode('-',end($breadcrumbs));
+        if(preg_match('/^[0-9]+$/', $slug[0])) unset($slug[0]);
+        $this->slug['val'] = implode('-', $slug);
         
         $resolved = resolve_path($path);
         
@@ -63,7 +65,6 @@
         $this->resolved['val'] = $resolved;
         
         if(!$pageName){
-            $pageName = 'home';
             $path = '';
         }
         
